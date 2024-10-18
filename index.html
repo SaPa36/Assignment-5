@@ -48,7 +48,7 @@
   </head>
   <body class="font-manrope">
     <!-- Header Section start-->
-    <header class="container mx-auto hidden">
+    <header id="hide-kora-lagbe" class="container mx-auto ">
       <!-- Navbar -->
       <div class="navbar my-16">
         <div class="navbar-start">
@@ -124,7 +124,7 @@
               Yes, you can run unit tests and view the results directly within
               the app. The integrated testing features allow for a streamlined .
             </p>
-            <button class="btn bg-primary-color border-none">Bus Ticket</button>
+            <button onclick="buyTicket()" class="btn bg-primary-color border-none">Bus Ticket</button>
           </div>
         </div>
       </div>
@@ -183,7 +183,7 @@
     <!-- Header Section End  -->
 
     <!-- Main Section Start -->
-    <main class="  my-4 bg-[#F7F8F8] border-t border-b-0 border-green-600 rounded-t-3xl round">
+    <main id="main" class="  my-4 bg-[#F7F8F8] border-t border-b-0 border-green-600 rounded-t-3xl round hidden">
 
 
       <!-- overall content -->
@@ -192,7 +192,7 @@
         <!-- P.H Paribahan -->
       <section class="">
         <!-- Content -->
-       <div class="text-center space-y-4 w-full">
+       <div class="text-center space-y-4 w-full mt-6">
         <h2 class=" text-4xl text-[#030712]  font-semibold">
             P.H Paribahan
           </h2>
@@ -273,11 +273,11 @@
       <!-- Overall select seat container -->
       <section class="my-24 container mx-auto bg-[#FFFFFF] p-5">
         <!-- Flex  -->
-        <div class="flex flex-col lg:flex-row gap-5">
+        <div class="flex flex-col lg:flex-row gap-8">
             <!-- Select Your Seat section-->
           <div class="lg:w-[730px] ">
             <div class="space-y-5">
-                <h3>Select Your Seat</h3>
+                <h3 class="font-semibold text-raleway text-xl">Select Your Seat</h3>
             <hr>
             <div class="flex justify-between">
                 <div class="flex gap-x-2">
@@ -491,11 +491,139 @@
           </div>
 
           <!-- Select Your Seat Section-->
-          <div>
-            <h3>Select Your Seat</h3>
+          <div class="min-h-80 w-[430px]">
+            <h3 class="font-semibold text-raleway text-xl mb-16">Select Your Seat</h3>
+            <div class="flex justify-around text-center  pt-4">
+                <div class="text-base text-inter font-medium text-[#030712] ">Seat- <span id="increase-seat">0</span>
+                </div>
+                <hr>
+                <div class="text-base text-inter font-medium text-[#030712] ">Class
+                </div>
+                <hr>
+                <div class="text-base text-inter font-medium text-[#030712]">Price
+                </div>
+            </div>
+            <hr>
+
+            <!-- Added Ticket Price here -->
+            <div id="first-div">
+    
+            </div>
+            
+            <br>
+            <hr>
+            <div>
+                <div class="flex justify-around gap-x-48 mb-6">
+                    <div class="font-semibold text-base font-inter"> Total Price</div>
+                    <div class="font-semibold text-base font-inter">BDT- <span id="price-total">0</span></div>
+                </div>
+            </div> 
+
+            <!-- Discount Part -->
+            <div class=" bg-[#F7F8F8] min-h-[20%] pt-6">
+    
+                <br>
+                <div id="hide-korbo" class="flex justify-center">
+                    <div  class="min-w-[60%]">
+                    <input id="input-cupon-id" type="text" placeholder="Have Any Cupon?" class="input input-bordered w-[99%]"/>
+                    </div>
+                    
+                    <div>
+                        <button onclick="showGrandTotalPrice(id)" id="apply-button" class="btn bg-[#1DD100] gap-4 font-inter text-white font-semibold">Apply</button>
+                    </div>
+                </div>
+                <br>
+                <div class="flex justify-around">
+                    <div class="font-semibold text-base font-inter">Grand Total</div>
+                    <div  class="font-semibold text-base font-inter"><span id="grand-total">0</span></div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Submission Form -->
+            <div>
+                <div class="w-full rounded-md  mt-12 p-10 border bg-[#F7F8F8]">
+                    <p class="text-base font-semibold">Passenger Name*</p>
+                    <label class="input input-bordered flex items-center gap-2">
+                        <input type="text" class="grow" placeholder="Enter Your Name" />
+                      </label> 
+                      <br>
+                      <p class="text-base font-semibold">Passenger E-mail*</p>
+                      <label class="input input-bordered flex items-center gap-2">
+                        <input type="text" class="grow" placeholder="Enter E-mail" />
+                      </label>
+                      <br>
+                      <p class="text-base font-semibold">Phone Number*</p>
+                      <label class="input input-bordered flex items-center gap-2">
+                        <input type="text" class="grow" placeholder="Enter Number"> 
+                      </label>
+                      <br>
+                      <div class="flex justify-center items-center">
+                        <button onclick="hideandShow()" id="submit-id" class="btn bg-[#1DD100] text-white w-full">Submit</button>
+                      </div>
+                      <div class="flex justify-around pt-6 gap-6">
+                        <div><u>Terms and Conditions</u></div>
+                        <div><u>Cancellation Policy</u></div>
+                      </div>
+                </div>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- Footer section -->
+      <footer class="mt-10">
+
+        <div class="flex justify-around gap-20 bg-[#010313] min-h-96 pt-10 text-white">
+            <div class="text-start">
+                <h1 class="justify-start text-4xl font-extrabold font-raleway text-[##FFFFFF] pb-6">P-Ticket</h1>
+                <p class="text-lg font-normal font-raleway text-[##FFFFFF] pb-24">P-Ticket is a digital platform to make your daily commuting better.</p>
+                <p class="text-base font-medium font-raleway text-[##FFFFFF]">@all rights reserved, P-Ticket services limited.2024</p>
+            </div>
+            
+            <div>
+                <h1 class="pt-4 text-xl font-semibold font-raleway">Download our app</h1>
+                <br>
+                <div class="flex pt-4">
+                    <div ><img class="pt-3" src="/images/playstore.png" alt=""></div>
+                    <br>
+                    <div>
+
+                        <h4 class="text-lg font-medium font-raleway">get it on</h4>
+                        <h1 class="text-2xl font-semibold font-raleway">GooglePlay</h1>
+                    </div>
+                    
+                </div>
+                <div class= "flex gap-12 pt-12  text-base font-medium font-raleway" >
+                    <p class="">Terms & condition</p>    
+                    <p>Return & refund policy</p>
+                    <p>Privacy policy</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
     </main>
+
+    <!-- Success section -->
+    <section id="show-id" class="hidden">
+        <!-- Success session Start Here -->
+                <div  class="flex justify-center items-center m-20 p-20 bg-white border border-dashed border-gray-500 rounded-md">
+                    <div class="text-center">
+                        <div class="flex justify-center items-center pb-5"><img src="/images/success.png" alt=""></div>
+                        <h1 class="text-3xl font-anton uppercase text-green-600 ">Success</h1>
+                        <br>
+                        <p>Thank you for Booking Our Bus Seats.We are working hard to find the best service and deals for you.</p>
+                        <br>
+                        <p>Shortly you will find a confirmation in your email</p>
+                        <br>
+                        <button onclick="continueKorbe()" id="continue-korbe" class="rounded-3xl bg-[#27AE60] btn btn-wide text-white">Continue</button>
+                    </div>
+                </div>
+    
+            </section>
+
+    <script src="/scripts/internal.js"></script>
+    <script src="/scripts/utility.js"></script>
   </body>
 </html>
